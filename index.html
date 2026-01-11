@@ -178,6 +178,17 @@
             100% { height: 5px; }
         }
 
+        /* 🔄 LAUFSCHRIFT ANIMATION */
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+            padding-left: 100%; /* Startet außerhalb */
+        }
+
         /* 
         🎨 MARKEN-FARBEN (Social Media) 
         Spezifische Farben für Twitch (Lila), Steam (Blau) usw.
@@ -320,18 +331,29 @@
                 ABOUT_ME.exe
             </h2>
 
-            <div class="prose prose-invert max-w-none text-slate-300 font-mono leading-relaxed space-y-4">
-                <p>
-                    <span class="text-neon-blue">>></span> <strong class="text-white">Servus!</strong> Ich bin Tobias, Baujahr '86.
-                    Level 101 Steam Veteran & Achievement Hunter mit einer <strong class="text-neon-purple">97% Completion Rate</strong>.
-                </p>
-                <p>
-                    Wenn ich nicht gerade versuche, meine Fabriken in <em class="text-neon-purple">Factorio</em> zu optimieren oder in <em class="text-neon-purple">Helldivers II</em> Freedom & Managed Democracy zu verteilen, kuratiere ich meine Musikbibliothek, die von <strong class="text-white">Frank Sinatra</strong> bis <strong class="text-white">The Knife</strong> reicht (scrobbling seit '06).
-                </p>
-                <p>
-                    <i class="fa-solid fa-bolt text-yellow-500"></i> Powered by caffeine, code, and retro-futurism.
-                </p>
-            </div>
+                <!-- NARRATIVE TEXT (Aus ich.md) -->
+                <div class="space-y-6">
+                    <p>
+                        <strong class="text-white text-lg">Wer ich bin.</strong><br>
+                        Es ist schwer, 21 Jahre als <strong class="text-neon-blue">Fallschirmjäger Offizier</strong> und die Seele eines "Meme Lords" in einen Satz zu pressen. Mein Leben ist eine Studie in Kontrasten. Ich bin ein Mann der Struktur, der das Chaos braucht.
+                    </p>
+                    <p>
+                        Man sagt mir nach, meine Stimme sei mein markantestes Merkmal – tief, dunkel, wortgewandt. Sie mag auf den ersten Moment einschüchtern, doch wer genau hinhört, merkt schnell: Sie wird genutzt, um zu helfen, nicht um zu herrschen. Ich bin eloquent, manchmal direkt, aber immer mit dem Ziel, mein Gegenüber weiterzubringen.
+                    </p>
+                    <p>
+                        Diese Philosophie überträgt sich 1:1 in meine digitale Existenz. Wenn ich Code schreibe – C#, Angular, komplexe Backends – dann bin ich kein Künstler, der auf die Muse wartet. Ich bin Handwerker. Code muss stehen wie eine Eins. Er muss funktionieren, skalieren und "Bugs" sind persönliche Beleidigungen, die ich, genau wie beim Kochen, am liebsten sofort aufesse.
+                    </p>
+                    <p>
+                         Vielleicht ist das der Grund, warum ich in <em class="text-neon-purple">EVE Online</em> kein einfacher Pilot geblieben bin. Als <strong class="text-white">"Lord of War"</strong> habe ich gelernt, dass der wahre Krieg in den Spreadsheets gewonnen wird. Wer Supercapitals fliegt, hat das Spiel verstanden; wer aber die Logistik dahinter kontrolliert, hat die Macht. 
+                    </p>
+                    <p>
+                        Doch bei all der High-Tech, den 500 Stunden in <em class="text-neon-purple">Helldivers 2</em> und der Liebe zu <em>Trentemøller</em> und <em>Sinatra</em>: Mein Endgame ist simpel. Ich suche <strong class="text-neon-blue">"Peace of Mind"</strong>. Ich will die Freiheit haben, spontan das zu tun, was mich erfüllt.
+                    </p>
+                    <p class="font-bold text-white italic border-l-4 border-neon-purple pl-4 my-6">
+                        "Führen durch Vorbild."<br>
+                        <span class="text-sm font-normal text-slate-400 not-italic">Ruhm ist laut. Erfolg ist leise.</span>
+                    </p>
+                </div>
 
             <!-- Stats Grid (Die XP-Leiste) -->
             <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -346,12 +368,22 @@
                 </div>
                  <div class="bg-black/40 p-3 rounded border border-zinc-800 flex flex-col items-center justify-center hover:border-neon-blue transition duration-300">
                     <span class="text-xs text-slate-500 uppercase tracking-wider">Perfect Games</span>
-                    <span class="text-2xl font-bold text-white">301</span>
+                    <span class="text-2xl font-bold text-white">326</span>
                 </div>
                  <div class="bg-black/40 p-3 rounded border border-zinc-800 flex flex-col items-center justify-center hover:border-neon-purple transition duration-300">
                     <span class="text-xs text-slate-500 uppercase tracking-wider">Badges</span>
                     <span class="text-2xl font-bold text-white">135</span>
                 </div>
+                </div>
+            </div>
+
+            <!-- DOSSIER BUTTON (Zum Öffnen der Akte) -->
+            <div class="mt-8 text-center">
+                <button onclick="toggleModal('dossier')" class="group relative inline-flex items-center gap-3 px-8 py-3 bg-zinc-900 border border-zinc-700 hover:border-neon-blue rounded transition-all duration-300 overflow-hidden">
+                    <div class="absolute inset-0 bg-neon-blue/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <i class="fa-solid fa-folder-open text-neon-blue group-hover:animate-bounce"></i>
+                    <span class="font-mono text-slate-300 group-hover:text-white relative z-10 uppercase tracking-widest text-sm">Open Personnel Dossier</span>
+                </button>
             </div>
         </section>
 
@@ -432,6 +464,58 @@
                                  <div>
                                     <div class="text-slate-200 font-bold">6TB NVMe Storage</div>
                                     <div class="text-xs text-slate-500 font-mono">Kingston Renegade</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                 
+                 <!-- Row 2: Projects & Storage (The new Stuff) -->
+                 <div class="grid md:grid-cols-2 gap-8">
+                     <!-- Project Golden Art -->
+                    <div class="glass-panel rounded-xl overflow-hidden group border-amber-500/20">
+                        <div class="bg-black/80 p-4 border-b border-amber-900/30 flex justify-between items-center group-hover:bg-amber-950/30 transition-colors">
+                             <h3 class="font-bold font-mono text-amber-500">Project_Golden_Art::Build</h3>
+                             <i class="fa-solid fa-gem text-amber-500 animate-pulse"></i>
+                        </div>
+                        <div class="p-6 space-y-4 text-sm">
+                            <div class="text-xs text-amber-300/60 font-mono mb-2">>> STATUS: CONSTRUCTION (Anti-RGB Protocol)</div>
+                            <div class="flex gap-4 items-center p-2">
+                                <i class="fa-solid fa-palette text-2xl text-amber-700"></i>
+                                 <div>
+                                    <div class="text-slate-200 font-bold">ASUS ProArt Ecosystem</div>
+                                    <div class="text-xs text-slate-500 font-mono">Black / Gold / Wood</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-center p-2">
+                                <i class="fa-solid fa-leaf text-2xl text-amber-700"></i>
+                                 <div>
+                                    <div class="text-slate-200 font-bold">Real Gold & Ash Wood</div>
+                                    <div class="text-xs text-slate-500 font-mono">Custom Materials</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- The Datacenter -->
+                    <div class="glass-panel rounded-xl overflow-hidden group">
+                        <div class="bg-zinc-800/50 p-4 border-b border-zinc-700 flex justify-between items-center group-hover:bg-zinc-800/80 transition-colors">
+                             <h3 class="font-bold font-mono text-neon-blue">The_Datacenter::Cluster</h3>
+                             <i class="fa-solid fa-server text-slate-500"></i>
+                        </div>
+                         <div class="p-6 space-y-4 text-sm">
+                            <div class="flex gap-4 items-center p-2">
+                                <i class="fa-solid fa-building-shield text-2xl text-slate-600"></i>
+                                <div>
+                                    <div class="text-slate-200 font-bold">TrueNAS R20 Cluster</div>
+                                    <div class="text-xs text-slate-500 font-mono">24x WD 12TB Red Plus</div>
+                                </div>
+                            </div>
+                              <div class="flex gap-4 items-center p-2">
+                                <i class="fa-solid fa-hard-drive text-2xl text-slate-600"></i>
+                                 <div>
+                                    <div class="text-slate-200 font-bold">~288 TB Raw Capacity</div>
+                                    <div class="text-xs text-slate-500 font-mono">Data Hoarding Elite</div>
                                 </div>
                             </div>
                         </div>
@@ -559,22 +643,57 @@
     📻 FLOATING WIDGET (WINAMP STYLE)
     Das kleine "Now Playing" Fenster unten rechts.
     -->
-    <div id="status-widget" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-40 w-64 glass-panel p-3 rounded-lg border-2 border-zinc-700 shadow-2xl transition-all duration-500 ease-out translate-y-0 opacity-100 hover:scale-105 bg-black/80">
-        <div class="flex gap-3 items-center">
-             <!-- Audio Visualizer (Die 4 kleinen Balken) -->
-             <div class="flex items-end gap-[2px] h-6 w-8 pb-1">
-                 <div class="bar h-2 w-1.5 bg-neon-blue rounded-t-sm"></div>
-                 <div class="bar h-3 w-1.5 bg-neon-blue rounded-t-sm"></div>
-                 <div class="bar h-1 w-1.5 bg-neon-blue rounded-t-sm"></div>
-                 <div class="bar h-4 w-1.5 bg-neon-blue rounded-t-sm"></div>
-             </div>
-             <div class="overflow-hidden flex-1">
-                 <div class="text-[10px] font-mono uppercase text-slate-400 tracking-wider mb-0.5" id="widget-label">Listening to</div>
-                 <div class="text-xs font-bold text-white whitespace-nowrap overflow-ellipsis overflow-hidden" id="widget-content">Loading...</div>
-             </div>
+    <!-- 
+    📻 FLOATING WIDGET (WINAMP STYLE DELUXE)
+    Das "Now Playing" Fenster unten rechts.
+    Jetzt mit Cover-Art Unterstützung!
+    -->
+    <div id="status-widget" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-40 w-80 glass-panel p-0 rounded-xl border border-zinc-700/50 shadow-2xl transition-all duration-500 ease-out translate-y-0 opacity-100 bg-black/90 flex flex-col group overflow-hidden h-24">
+        
+        <!-- Header (Cover + Info) -->
+        <div class="flex h-24 shrink-0 relative">
+            <!-- Toggle Button (Expand) -->
+            <button onclick="toggleWidget()" class="absolute top-2 right-2 z-20 text-slate-500 hover:text-white transition-colors p-1" title="Verlauf anzeigen">
+                <i id="widget-toggle-icon" class="fa-solid fa-chevron-up text-xs"></i>
+            </button>
+
+            <!-- Album Cover -->
+            <div class="relative w-24 h-24 shrink-0 bg-zinc-800">
+                 <img id="widget-art" src="" alt="Cover" class="w-full h-full object-cover opacity-0 transition-opacity duration-700">
+                 <!-- Fallback Vinyl Icon -->
+                 <div id="widget-art-fallback" class="absolute inset-0 flex items-center justify-center text-zinc-600">
+                     <i class="fa-solid fa-compact-disc text-4xl animate-spin-slow"></i>
+                 </div>
+            </div>
+
+            <!-- Info Area (Clickable for YT Music) -->
+            <div class="flex-1 p-3 flex flex-col justify-center min-w-0 relative cursor-pointer group/info" onclick="openYtMusic()">
+                 <!-- Visualizer Overlay -->
+                 <div class="absolute right-8 top-3 flex items-end gap-[2px] h-4 opacity-50">
+                      <div class="bar h-2 w-1 bg-neon-blue rounded-t-sm"></div>
+                      <div class="bar h-3 w-1 bg-neon-blue rounded-t-sm"></div>
+                      <div class="bar h-1 w-1 bg-neon-blue rounded-t-sm"></div>
+                 </div>
+
+                 <div class="text-[9px] font-mono uppercase text-neon-blue tracking-wider mb-1 group-hover/info:underline" id="widget-label">OFFLINE</div>
+                 
+                 <!-- Laufschrift -->
+                 <div class="relative overflow-hidden h-5 mb-0.5 w-full pr-6">
+                     <div class="text-xs font-bold text-white whitespace-nowrap animate-marquee" id="widget-track">Lade Daten...</div>
+                 </div>
+                 
+                 <div class="text-[10px] text-slate-400 truncate" id="widget-artist">Bitte warten</div>
+                 <div class="text-[9px] text-slate-500 truncate italic mt-0.5 flex gap-1">
+                    <span id="widget-album"></span>
+                    <span id="widget-year" class="text-slate-600"></span>
+                 </div>
+            </div>
         </div>
-        <!-- Griff-Leiste oben (nur Deko für Retro-Look) -->
-        <div class="absolute -top-1 left-4 right-4 h-0.5 bg-zinc-600 rounded-full"></div>
+
+        <!-- HISTORY LIST (Hidden by default) -->
+        <div id="widget-history" class="px-3 pb-3 pt-1 space-y-2 overflow-y-auto max-h-0 transition-all duration-500 opacity-0 border-t border-zinc-800/50">
+            <!-- Items werden per JS eingefügt -->
+        </div>
     </div>
 
     <!-- 
@@ -591,15 +710,22 @@
             <button onclick="toggleModal('impressum')" class="absolute top-4 right-4 text-slate-500 hover:text-white"><i class="fa-solid fa-xmark fa-xl"></i></button>
             <h3 class="text-xl font-display text-white mb-4">Impressum</h3>
             <div class="prose prose-sm prose-invert text-slate-400 font-mono">
-                <p>Angaben gemäß § 5 TMG:<br>
-                Tobias Boyke<br>
-                Oberrather Str. 45<br>
-                40472 Düsseldorf</p>
-                <br>
-                <p>Kontakt:<br>
-                Email: Tobias.Boyke+admin@gmail.com</p>
-                <br>
-                <p>Haftungsausschluss: Keine Haftung für Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                <p>Angaben gemäß § 5 TMG</p>
+                <p>
+                    <strong>Tobias Boyke</strong><br>
+                    Oberrather Str. 45<br>
+                    40472 Düsseldorf<br>
+                    Deutschland
+                </p>
+                <p>
+                    <strong>Kontakt:</strong><br>
+                    E-Mail: Tobias.Boyke+admin@gmail.com<br>
+                    Tel: +49 (0) 1573 833 92 63
+                </p>
+                <p class="text-xs text-slate-600 mt-4">
+                    Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+                    Tobias Boyke (Anschrift wie oben)
+                </p>
             </div>
         </div>
     </div>
@@ -609,23 +735,205 @@
          <div class="glass-panel border-zinc-700 rounded-xl p-8 max-w-2xl w-full relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="toggleModal('privacy')" class="absolute top-4 right-4 text-slate-500 hover:text-white"><i class="fa-solid fa-xmark fa-xl"></i></button>
              <h3 class="text-xl font-display text-white mb-4">Datenschutz & Disclaimer</h3>
-             <div class="prose prose-sm prose-invert text-slate-400 font-mono space-y-4">
-                <p><strong>1. Datenschutz auf einen Blick</strong><br>
-                Diese Website, gehostet via GitHub Pages/Netlify, erhebt keine personenbezogenen Daten. Es werden keine Tracker oder Werbe-Cookies eingesetzt.</p>
+             <div class="prose prose-sm prose-invert text-slate-400 font-mono space-y-4 text-xs">
+                <p><strong>1. Datenschutz auf einen Blick (Status 2026)</strong><br>
+                Ihre Privatsphäre ist mir heilig. Diese Website ist so konzipiert, dass sie so wenige Daten wie möglich sammelt. Es gibt keine Werbe-Tracker, kein Google Analytics und keine Social-Media-Pixel.</p>
                 
-                <p><strong>2. Externe Ressourcen (CDNs)</strong><br>
-                Zur korrekten Darstellung und Funktion dieser Website werden Bibliotheken von externen Servern geladen (Content Delivery Networks). Hierbei wird technisch bedingt Ihre IP-Adresse an den jeweiligen Anbieter übermittelt.
-                <ul class="list-disc pl-4">
-                    <li><strong>FontAwesome:</strong> Für Icons (cdnjs.cloudflare.com).</li>
-                    <li><strong>TailwindCSS:</strong> Für Styles (cdn.jsdelivr.net).</li>
-                    <li><strong>Google Fonts:</strong> Für Schriftarten (Press Start 2P, Inter, Courier Prime). Google Fonts werden lokal im Cache Ihres Browsers gespeichert, um Ladezeiten zu minimieren. (fonts.googleapis.com).</li>
-                    <li><strong>Steam CDN:</strong> Für die Anzeige von Spiele-Covern (shared.fastly.steamstatic.com).</li>
-                    <li><strong>UI Avatars:</strong> Für das Profilbild (ui-avatars.com).</li>
-                </ul>
-                Durch die Nutzung der Website erklären Sie sich mit dieser technischen Notwendigkeit einverstanden.</p>
+                <p><strong>2. Hosting & Log-Files</strong><br>
+                Diese Seite wird über GitHub Pages / Netlify gehostet. Der Provider erhebt technisch notwendige Daten (IP-Adresse, Browser, Zeitpunkt), um den sicheren Betrieb zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO). Diese Daten werden nach kurzer Zeit gelöscht.</p>
 
-                <p><strong>3. Externe Links</strong><br>
-                Diese Seite enthält Verlinkungen zu Twitch, Steam, Last.fm, Trakt und Amazon. Wenn Sie diese Links anklicken, verlassen Sie meinen Verantwortungsbereich. Es gelten die Datenschutzbestimmungen der Zielseite.</p>
+                <p><strong>3. Externe Dienste (CDNs & APIs)</strong><br>
+                Damit die Seite so aussieht und funktioniert, wie sie es tut, laden wir Ressourcen von Dritten. Dabei wird Ihre IP an diese Server übermittelt:
+                <ul class="list-disc pl-4">
+                    <li><strong>FontAwesome / Google Fonts:</strong> Für Icons und Schriftarten (Optimiertes Caching).</li>
+                    <li><strong>Steam CDN:</strong> Für die Spiele-Cover.</li>
+                    <li><strong>Last.fm API:</strong> Wenn Sie das Musik-Widget nutzen, wird der aktuelle Titel live abgerufen.</li>
+                </ul>
+                </p>
+                
+                <p><strong>4. LocalStorage ("Cookies light")</strong><br>
+                Wir nutzen keine klassischen Cookies! Wir speichern lediglich Ihre <strong>Präferenzen</strong> (Dark/Light Mode) lokal auf Ihrem Gerät (LocalStorage). Diese Daten verlassen nie Ihren Browser.</p>
+
+                <p><strong>5. Ihre Rechte</strong><br>
+                Sie haben jederzeit das Recht auf Auskunft, Löschung und Widerruf. Schreiben Sie mir einfach eine Mail.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PERSONNEL DOSSIER (Die Akte) -->
+    <div id="modal-dossier" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
+        <div class="glass-panel border-zinc-700/80 rounded-sm p-0 max-w-4xl w-full relative shadow-[0_0_50px_rgba(0,0,0,0.8)] max-h-[90vh] overflow-hidden flex flex-col">
+            <!-- Header (Akte) -->
+            <div class="bg-zinc-900 border-b border-zinc-700 p-4 flex justify-between items-center shrink-0">
+                <div class="flex items-center gap-4">
+                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <h3 class="font-mono text-neon-blue tracking-widest uppercase text-lg">restricted_access // dossier_view</h3>
+                </div>
+                <button onclick="toggleModal('dossier')" class="text-slate-500 hover:text-red-500 transition-colors">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Content (Scrollbar) -->
+            <div class="p-8 overflow-y-auto space-y-12 font-mono text-sm text-slate-300 bg-black/40">
+                
+                <!-- 1. SERVICE RECORD (Militär & EVE) -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-4">
+                        <h4 class="text-white border-b border-zinc-700 pb-2 uppercase tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-neon-blue"></i> Service Record
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span class="text-slate-500">Rank:</span>
+                                <span class="text-white">Fallschirmjäger Offizier</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-slate-500">Service Time:</span>
+                                <span class="text-white">21 Years (Active)</span>
+                            </li>
+                             <li class="flex justify-between">
+                                <span class="text-slate-500">Specialization:</span>
+                                <span class="text-white">Leadership & Strategy</span>
+                            </li>
+                        </ul>
+                         <div class="mt-4 pt-4 border-t border-zinc-800">
+                             <h5 class="text-xs text-slate-500 uppercase tracking-wider mb-2">Psychometrics</h5>
+                             <div class="flex justify-between text-xs mb-1">
+                                <span class="text-slate-400">Voice Pattern:</span>
+                                <span class="text-neon-blue">Deep / Resonant (Command)</span>
+                             </div>
+                              <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Social Trait:</span>
+                                <span class="text-white">Intimidating appearance, helpful core.</span>
+                             </div>
+                         </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-white border-b border-zinc-700 pb-2 uppercase tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-rocket text-neon-purple"></i> Digital Service (EVE)
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span class="text-slate-500">Playtime:</span>
+                                <span class="text-neon-purple">21,000+ Hours</span>
+                            </li>
+                             <li class="flex justify-between">
+                                <span class="text-slate-500">Skillpoints:</span>
+                                <span class="text-white">400,000,000+</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-slate-500">Role:</span>
+                                <span class="text-white">Supercapital Logistics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. TECH STACK -->
+                <div class="space-y-4">
+                     <h4 class="text-white border-b border-zinc-700 pb-2 uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-code text-green-500"></i> Technical Competence
+                    </h4>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+                        <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Core</div>
+                            <div class="text-white font-bold">C# / .NET 9</div>
+                        </div>
+                        <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Frontend</div>
+                            <div class="text-white font-bold">Angular 21</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Styling</div>
+                            <div class="text-white font-bold">Tailwind v4</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Cloud</div>
+                            <div class="text-white font-bold">Azure / GCP</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">OS (Daily)</div>
+                            <div class="text-white font-bold">Windows 11</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">OS (Root)</div>
+                            <div class="text-white font-bold">Arch Linux</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Legacy / Alt</div>
+                            <div class="text-white font-bold">Delphi / Java 21</div>
+                        </div>
+                         <div class="bg-zinc-900/50 p-2 border border-zinc-800 rounded">
+                            <div class="text-slate-500 mb-1">Databases</div>
+                            <div class="text-white font-bold">MariaDB / MS SQL</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CULTURAL DATABASE -->
+                <div class="space-y-4">
+                     <h4 class="text-white border-b border-zinc-700 pb-2 uppercase tracking-widest flex items-center gap-2">
+                        <i class="fa-solid fa-compact-disc text-yellow-500"></i> Cultural Database (10/10)
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-8 text-xs">
+                        <div>
+                            <strong class="text-neon-blue block mb-2">>> VISUAL_MEDIA</strong>
+                            <ul class="space-y-1 text-slate-400">
+                                <li>The Expanse <span class="text-zinc-600">// Sci-Fi Masterpiece</span></li>
+                                <li>Mr. Robot <span class="text-zinc-600">// Dev Bible</span></li>
+                                <li>Blade Runner <span class="text-zinc-600">// Aesthetic Origin</span></li>
+                                <li>Dune <span class="text-zinc-600">// Scale & Sound</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong class="text-neon-purple block mb-2">>> AUDIO_LOGS</strong>
+                            <ul class="space-y-1 text-slate-400">
+                                <li>Trentemøller <span class="text-zinc-600">// The Last Resort</span></li>
+                                <li>Frank Sinatra <span class="text-zinc-600">// The Voice</span></li>
+                                <li>Paul Kalkbrenner <span class="text-zinc-600">// Berlin Calling</span></li>
+                                <li>Hans Zimmer <span class="text-zinc-600">// Epic Score</span></li>
+                            </ul>
+                        </div>
+                         <div>
+                            <strong class="text-green-500 block mb-2">>> INTERACTIVE</strong>
+                            <ul class="space-y-1 text-slate-400">
+                                <li>EVE Online <span class="text-zinc-600">// The Second Job</span></li>
+                                <li>Factorio <span class="text-zinc-600">// The Addiction</span></li>
+                                <li>Helldivers II <span class="text-zinc-600">// The Duty</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Footer Stamp -->
+                 <div class="pt-8 border-t border-zinc-800 text-center text-xs text-zinc-600 uppercase tracking-[0.2em]">
+                    End of Record // Classification: Top Secret
+                 </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- COOKIE MODAL (CYBERPUNK STYLE) -->
+    <div id="cookie-banner" class="fixed bottom-0 inset-x-0 z-[200] p-4 flex justify-center translate-y-full transition-transform duration-500 ease-out">
+        <div class="glass-panel border-neon-blue/50 rounded-xl p-6 max-w-2xl w-full shadow-[0_0_50px_rgba(0,255,255,0.2)] flex flex-col md:flex-row items-center gap-6 bg-black/95">
+            <div class="text-4xl">🍪</div>
+            <div class="flex-1 space-y-2 text-center md:text-left">
+                <h4 class="text-white font-bold font-header text-lg">PROTOCOL_COOKIE_INIT</h4>
+                <p class="text-sm text-slate-400 font-mono">
+                    Wir nutzen <span class="text-neon-blue">keine Tracker</span>. Lediglich lokale Speicherstände für deine Theme-Einstellungen (Dark/Light Mode). 
+                    Das ist technisch notwendig, damit deine Augen nicht bluten. Deal?
+                </p>
+            </div>
+            <div class="flex gap-4 shrink-0">
+                <button onclick="acceptCookies()" class="px-6 py-2 bg-neon-blue text-black font-bold font-mono rounded hover:bg-white transition hover:shadow-[0_0_15px_rgba(0,255,255,0.8)]">
+                    [ ACCEPT ]
+                </button>
+                 <button onclick="acceptCookies()" class="px-6 py-2 border border-zinc-700 text-slate-400 font-mono rounded hover:text-white hover:border-white transition">
+                    [ WHATEVER ]
+                </button>
             </div>
         </div>
     </div>
@@ -648,15 +956,15 @@
          * 3. Füge es hier ein. Das Bild holt sich das Skript automatisch von den Steam-Servern.
          */
         const games = [
-            { id: 427520, name: "Factorio" },
-            { id: 553850, name: "Helldivers II" },
             { id: 244850, name: "Space Engineers" },
-            { id: 1091500, name: "Cyberpunk 2077" },
-            { id: 552990, name: "World of Warships" },
-            { id: 255710, name: "Cities: Skylines" }, 
-            { id: 352720, name: "The Universe" }, 
-            { id: 271590, name: "GTA V" },
-            { id: 1827660, name: "R.E.F.O." },
+            { id: 553850, name: "Helldivers II" },
+            { id: 431240, name: "Golf With Your Friends" },
+            { id: 559650, name: "Witch It!" },
+            { id: 1484210, name: "Lockdown Protocol" },
+            { id: 427520, name: "Factorio" }, 
+            { id: 9350,   name: "Supreme Commander" },
+            { id: 264710, name: "Subnautica" },
+            { id: 3241660, name: "R.E.P.O." }, 
             { id: 361420, name: "Astroneer" },
             { id: 1568590, name: "Goose Goose Duck" },
             { id: 281990, name: "Stellaris" }
@@ -668,9 +976,13 @@
         // Dieser Code baut für jedes Spiel in der Liste (oben) eine HTML-Kachel.
         // Das ist besser als 20x denselben HTML-Code zu kopieren (DRY Prinzip: Don't Repeat Yourself).
         games.forEach(game => {
-            const card = document.createElement('div');
+            // Wir machen die ganze Karte zum Link (<a> Tag)
+            const card = document.createElement('a');
+            card.href = `https://store.steampowered.com/app/${game.id}`;
+            card.target = "_blank"; // Öffnet in neuem Tab
+            
             // Basis-Klassen: 'tilt-card' aktiviert unsere 3D-Kipp-Logik (siehe unten)
-            card.className = "tilt-card relative h-48 rounded-xl cursor-pointer group"; 
+            card.className = "tilt-card relative h-48 rounded-xl cursor-pointer group block"; // 'block' ist wichtig für <a>
             
             // Magic URL: Steam hostet die Bilder für alle Spiele öffentlich.
             const imgUrl = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.id}/header.jpg`;
@@ -686,6 +998,10 @@
                 <!-- Der Titel des Spiels (schwebt über dem Bild) -->
                 <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-20">
                     <h4 class="font-display text-[10px] md:text-xs text-white drop-shadow-md tracking-wider">${game.name}</h4>
+                </div>
+                <!-- Kleines Icon für "Externer Link" oben rechts -->
+                <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-white/50 text-xs"></i>
                 </div>
             `;
             
@@ -734,83 +1050,227 @@
         const LASTFM_USER = 'spezialzt'; // Dein Username auf Last.fm
 
         const wLabel = document.getElementById('widget-label');
-        const wText = document.getElementById('widget-content');
+        const wTrack = document.getElementById('widget-track');
+        const wArtist = document.getElementById('widget-artist');
+        const wAlbum = document.getElementById('widget-album');
+        const wYear = document.getElementById('widget-year');
+        const wArt = document.getElementById('widget-art');
+        const wFallback = document.getElementById('widget-art-fallback');
+        const wHistory = document.getElementById('widget-history');
+        const wWidget = document.getElementById('status-widget');
+        const wToggleIcon = document.getElementById('widget-toggle-icon');
+        const cookieBanner = document.getElementById('cookie-banner');
+        
+        // COOKIE LOGIK
+        setTimeout(() => {
+            if(!localStorage.getItem('cookieConsent')) {
+                // Zeige Banner nach 1 Sekunde, wenn noch nicht akzeptiert
+                cookieBanner.classList.remove('translate-y-full');
+            }
+        }, 1000);
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            cookieBanner.classList.add('translate-y-full');
+            // Sound-Effekt könnte hier hin ;)
+        }
+
+        let isExpanded = false;
+
+        function toggleWidget() {
+            isExpanded = !isExpanded;
+            if(isExpanded) {
+                // Expandieren
+                wWidget.classList.remove('h-24', 'hover:scale-105'); // Scale Hover stört beim Expandieren
+                wWidget.classList.add('h-auto');
+                wHistory.classList.remove('max-h-0', 'opacity-0');
+                wHistory.classList.add('max-h-64', 'opacity-100'); // Max Height für Scroll
+                wToggleIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                // Kollabieren
+                wHistory.classList.remove('max-h-64', 'opacity-100');
+                wHistory.classList.add('max-h-0', 'opacity-0');
+                // Warten bis Animation fertig (500ms) bevor wir h-24 setzen, aber CSS transition regelt das meist smooth
+                // Hier machen wir es einfach via CSS Klasse
+                wWidget.classList.remove('h-auto');
+                wWidget.classList.add('h-24', 'hover:scale-105');
+                wToggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
 
         // FALLBACK DATEN (Demo-Modus)
-        // Das zeigen wir an, wenn kein API Key da ist oder das Internet weg ist.
         const demoTracks = [
-            { artist: "Carpenter Brut", track: "Turbo Killer" },
-            { artist: "The Midnight", track: "Los Angeles" },
-            { artist: "Gunship", track: "Tech Noir" },
-            { artist: "Perturbator", track: "Future Club" }
+            { artist: "Carpenter Brut", track: "Turbo Killer", album: "Trilogy", year: "2015" },
+            { artist: "The Midnight", track: "Los Angeles", album: "Days of Thunder", year: "2014" },
+            { artist: "Gunship", track: "Tech Noir", album: "Gunship", year: "2015" },
+            { artist: "Perturbator", track: "Future Club", album: "Dangerous Days", year: "2014" },
+            { artist: "Kavinsky", track: "Nightcall", album: "OutRun", year: "2013" }
         ];
 
         let demoIndex = 0;
 
         /**
-         * Holt den aktuell gespielten Song von Last.fm
+         * Holt zusätzl. Album-Info (Jahr)
+         */
+        async function fetchAlbumYear(artist, album) {
+            // ... same as before ...
+             if (!artist || !album) return '';
+            try {
+                const url = `https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${LASTFM_API_KEY}&artist=${encodeURIComponent(artist)}&album=${encodeURIComponent(album)}&format=json`;
+                const res = await fetch(url);
+                const data = await res.json();
+                if (data.album && data.album.wiki && data.album.wiki.published) {
+                    const match = data.album.wiki.published.match(/\d{4}/);
+                    return match ? `(${match[0]})` : '';
+                }
+            } catch (e) { return ''; }
+            return '';
+        }
+
+        /**
+         * Holt den aktuell gespielten Song von Last.fm + History
          */
         async function fetchNowPlaying() {
-            // Schritt 1: Haben wir überhaupt einen Key?
             if (!LASTFM_API_KEY || LASTFM_API_KEY === 'YOUR_API_KEY_HERE') {
-                console.warn('⚠️ Kein Last.fm API Key gefunden. Starte Demo-Modus.');
                 startDemoMode();
                 return;
             }
 
             try {
-                // Schritt 2: Die Anfrage an Last.fm senden
-                // Wir nutzen die Methode 'user.getrecenttracks', da 'user.getnowplaying' veraltet/unzuverlässig ist.
-                // limit=1 heißt: Gib mir nur den allerletzten Song.
-                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&format=json&limit=1`;
+                // limit=6 (1 Aktuell + 5 History)
+                const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${LASTFM_USER}&api_key=${LASTFM_API_KEY}&format=json&limit=6`;
                 
                 const response = await fetch(url);
                 const data = await response.json();
 
-                // Schritt 3: Daten prüfen
-                const track = data.recenttracks.track[0];
-                
-                if (!track) throw new Error("Keine Tracks gefunden");
+                if (!data.recenttracks || !data.recenttracks.track) throw new Error("Keine Tracks");
 
-                // Check: Spielt der Song gerade?
-                // Last.fm markiert den aktuellen Song mit dem Attribut "@attr": { "nowplaying": "true" }
-                const isNowPlaying = track['@attr'] && track['@attr'].nowplaying === 'true';
+                const tracks = data.recenttracks.track;
+                const currentTrack = tracks[0];
                 
-                // Schritt 4: UI Update
-                updateWidgetUI(isNowPlaying ? 'Now Playing' : 'Last Played', `${track.artist['#text']} - ${track.name}`);
+                // --- UPDATE MAIN ---
+                const isNowPlaying = currentTrack['@attr'] && currentTrack['@attr'].nowplaying === 'true';
+                const image = currentTrack.image.find(img => img.size === 'large') || currentTrack.image[2];
+                
+                let year = '';
+                if(currentTrack.album['#text']) {
+                    year = await fetchAlbumYear(currentTrack.artist['#text'], currentTrack.album['#text']);
+                }
+
+                updateWidgetUI(
+                    isNowPlaying ? 'LISTENING NOW' : 'LAST PLAYED', 
+                    currentTrack.name, 
+                    currentTrack.artist['#text'],
+                    currentTrack.album['#text'],
+                    year,
+                    image ? image['#text'] : ''
+                );
+
+                // --- UPDATE HISTORY ---
+                // Wir nehmen Tracks 1 bis 5 (insgesamt 5 Stück)
+                const historyTracks = tracks.slice(1, 6);
+                updateHistoryUI(historyTracks);
 
             } catch (error) {
-                console.error('Fehler beim Laden von Last.fm:', error);
-                // Bei Fehler einfach den letzten bekannten Song stehen lassen oder Demo starten
-                if(wText.innerText === 'Loading...') startDemoMode();
+                if(wTrack.innerText === 'Lade Daten...') startDemoMode();
             }
         }
+
+        // ZUKUNFTS-NOTE #6: History Update
+        function updateHistoryUI(tracks) {
+            wHistory.innerHTML = ''; // Clear
+            
+            if(!tracks || tracks.length === 0) {
+                wHistory.innerHTML = '<div class="text-center text-[10px] text-slate-600">Keine Historie verfügbar</div>';
+                return;
+            }
+
+            // Label "Recently Played" nur einmal oben
+            const header = document.createElement('div');
+            header.className = "text-[9px] font-mono text-zinc-500 uppercase tracking-widest px-1 pb-1";
+            header.innerText = "Recently Played";
+            wHistory.appendChild(header);
+
+            tracks.forEach(t => {
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-2 p-1.5 rounded hover:bg-white/5 transition group cursor-pointer";
+                // Klick auf History Item öffnet auch YT Music
+                div.onclick = () => {
+                     const query = encodeURIComponent(`${t.artist['#text']} ${t.name}`);
+                     window.open(`https://music.youtube.com/search?q=${query}`, '_blank');
+                };
+                
+                const imgObj = t.image.find(img => img.size === 'small') || t.image[0];
+                const imgUrl = imgObj ? imgObj['#text'] : '';
+                
+                div.innerHTML = `
+                    <div class="w-8 h-8 rounded bg-zinc-800 shrink-0 overflow-hidden border border-zinc-700">
+                        ${imgUrl ? `<img src="${imgUrl}" class="w-full h-full object-cover">` : '<div class="w-full h-full flex items-center justify-center"><i class="fa-solid fa-music text-xs text-zinc-600"></i></div>'}
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <div class="text-[10px] font-bold text-slate-300 truncate group-hover:text-neon-blue transition-colors">${t.name}</div>
+                        <div class="text-[9px] text-slate-500 truncate">${t.artist['#text']}</div>
+                    </div>
+                    <div class="text-[8px] font-mono text-zinc-600 whitespace-nowrap">
+                        ${t.date ? new Date(t.date.uts * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '...'}
+                    </div>
+                `;
+                wHistory.appendChild(div);
+            });
+        }
+        
+        /**
+         * Öffnet YouTube Music Suche für den aktuellen Track
+         */
+        function openYtMusic() {
+            const track = wTrack.innerText;
+            const artist = wArtist.innerText;
+            if(track === 'Lade Daten...' || track === 'Keine Tracks gefunden') return;
+            
+            const query = encodeURIComponent(`${artist} ${track}`);
+            window.open(`https://music.youtube.com/search?q=${query}`, '_blank');
+        }
+
 
         /**
          * Updated das Widget unten rechts
          */
-        function updateWidgetUI(label, text) {
-            // Nur updaten wenn sich was geändert hat, um Flackern zu vermeiden
-            if (wText.innerText !== text) {
+        function updateWidgetUI(label, track, artist, album, year, imgUrl) {
+            // Nur updaten wenn sich Track geändert hat
+            if (wTrack.innerText !== track) {
                 wLabel.innerText = label;
-                wText.innerText = text;
+                wTrack.innerText = track;
+                wArtist.innerText = artist;
+                wAlbum.innerText = album || ''; 
+                wYear.innerText = year || '';
+
+                // Cover Update
+                if (imgUrl) {
+                    wArt.src = imgUrl;
+                    wArt.onload = () => {
+                        wArt.classList.remove('opacity-0'); // Fade In
+                        wFallback.style.display = 'none';
+                    };
+                } else {
+                     wArt.classList.add('opacity-0');
+                     wFallback.style.display = 'flex';
+                }
                 
-                // Kurzes Aufleuchten (Puls) für Feedback
-                wText.classList.remove('animate-pulse');
-                void wText.offsetWidth; // Trigger Reflow (Trick um Animation neu zu starten)
-                wText.classList.add('animate-pulse');
+                // Animation reset für Marquee (Trick: Entfernen und neu hinzufügen)
+                wTrack.classList.remove('animate-marquee');
+                void wTrack.offsetWidth;
+                wTrack.classList.add('animate-marquee');
             }
         }
 
         /**
          * Der Demo-Modus (falls API kaputt)
-         * Wechselt alle 5 Sekunden durch die Demo-Tracks
          */
         function startDemoMode() {
              // Intervall starten
              setInterval(() => {
                 const song = demoTracks[demoIndex];
-                updateWidgetUI("On Rotation", `${song.artist} - ${song.track}`);
+                updateWidgetUI("ON ROTATION", song.track, song.artist, song.album, `(${song.year})`, '');
                 demoIndex = (demoIndex + 1) % demoTracks.length;
              }, 5000);
         }
