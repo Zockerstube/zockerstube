@@ -44,6 +44,11 @@
     contain: layout style;
 }
 
+#hall-of-fame, #arsenal {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
+}
+
 .section:last-child {
     margin-bottom: 0;
 }

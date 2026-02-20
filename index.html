@@ -29,6 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+    <link rel="preconnect" href="https://shared.fastly.steamstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://shared.fastly.steamstatic.com">
     <link rel="dns-prefetch" href="https://ws.audioscrobbler.com">
     <link rel="dns-prefetch" href="https://ui-avatars.com">
@@ -138,6 +139,7 @@
                 <img src="assets/avatar.png"
                      alt="Mr.Riös Avatar"
                      loading="eager"
+                     fetchpriority="high"
                      decoding="async"
                      width="128" height="128"
                      style="position:relative;width:8rem;height:8rem;border-radius:9999px;border:2px solid var(--border-default);object-fit:cover;box-shadow:var(--shadow-panel);transition:transform var(--transition-slow)"
