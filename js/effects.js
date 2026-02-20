@@ -131,7 +131,7 @@ const Effects = (() => {
             spotlight.style.setProperty('--x', `${x}%`);
             spotlight.style.setProperty('--y', `${y}%`);
             spotlight.classList.add('is-active');
-        });
+        }, { passive: true });
     }
 
     /* ---------------------------------------------------------------

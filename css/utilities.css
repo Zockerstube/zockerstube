@@ -33,6 +33,7 @@
     perspective: 500px;
     transform-style: preserve-3d;
     animation: grid-move 2s linear infinite;
+    will-change: transform;
 }
 
 /* Light Mode Variante */
@@ -79,14 +80,12 @@
     pointer-events: none;
     z-index: 0;
     contain: strict;
-    will-change: auto;
 }
 
 .bg-layer__grid {
     position: absolute;
     inset: 0;
     opacity: 0.5;
-    transform: scale(1.5);
     transform-origin: top;
 }
 
@@ -150,7 +149,7 @@
     }
 }
 
-.dossier-section h4 {
+.dossier-section h3 {
     color: #fff;
     border-bottom: 1px solid var(--border-subtle);
     padding-bottom: var(--space-sm);

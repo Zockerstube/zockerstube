@@ -94,7 +94,7 @@
     opacity: 1;
 }
 
-.tilt-card__title h4 {
+.tilt-card__title span {
     font-family: var(--font-display);
     font-size: 0.625rem;
     color: #fff;
@@ -104,7 +104,7 @@
 }
 
 @media (min-width: 768px) {
-    .tilt-card__title h4 {
+    .tilt-card__title span {
         font-size: 0.75rem;
     }
 }
@@ -475,9 +475,12 @@
 
 .widget__bar {
     width: 4px;
+    height: 5px;
     background: var(--color-neon-blue);
     animation: equalize 1s infinite;
     border-radius: 1px 1px 0 0;
+    transform-origin: bottom;
+    will-change: transform;
 }
 
 .widget__bar:nth-child(1) { animation-delay: -0.2s; }

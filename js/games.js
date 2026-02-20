@@ -95,7 +95,7 @@ const GamesGrid = (() => {
                 </div>
             </div>
             <div class="tilt-card__title">
-                <h4>${game.name}</h4>
+                <span>${game.name}</span>
             </div>
             <div class="tilt-card__link-icon">
                 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>

@@ -27,11 +27,9 @@
         if (isOpen) {
             modal.classList.remove('is-open');
             document.body.style.overflow = '';
-            AudioSystem?.play('click');
         } else {
             modal.classList.add('is-open');
             document.body.style.overflow = 'hidden';
-            AudioSystem?.play('open');
         }
     }
 
@@ -60,10 +58,14 @@
 
     }
 
-    /* --- Los geht's! --- */
+    /* --- Los geht's! (requestIdleCallback für TBT-Reduktion) --- */
+    const scheduleBootstrap = window.requestIdleCallback
+        ? (cb) => requestIdleCallback(cb, { timeout: 2000 })
+        : (cb) => setTimeout(cb, 0);
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bootstrap);
+        document.addEventListener('DOMContentLoaded', () => scheduleBootstrap(bootstrap));
     } else {
-        bootstrap();
+        scheduleBootstrap(bootstrap);
     }
 })();

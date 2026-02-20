@@ -121,7 +121,7 @@
 
     <!-- 🌌 HINTERGRUND-EBENE -->
     <div class="bg-layer">
-        <div class="bg-layer__grid retro-grid" style="transform:scale(1.5) rotateX(12deg);transform-origin:top"></div>
+        <div class="bg-layer__grid retro-grid"></div>
         <div class="bg-layer__fade"></div>
         <div id="spotlight" class="spotlight" style="position:absolute;inset:0;z-index:0"></div>
         <div class="bg-layer__scanlines scanlines"></div>
@@ -131,13 +131,13 @@
     <main class="main-content container">
 
         <!-- ═══════════ HEADER: Profilbild & Titel ═══════════ -->
-        <section class="section" style="text-align:center;padding-top:3rem" data-reveal>
+        <section class="section" style="text-align:center;padding-top:3rem;min-height:60vh" data-reveal>
             <div style="position:relative;display:inline-block;cursor:pointer" class="group">
                 <!-- Avatar Glow -->
                 <div style="position:absolute;inset:-4px;border-radius:9999px;background:linear-gradient(to right,var(--color-neon-blue),var(--color-neon-purple));opacity:0.75;filter:blur(16px)" class="animate-pulse-glow"></div>
                 <img src="https://ui-avatars.com/api/?name=Mr+Ri%C3%B6s&background=09090b&color=00FFFF&size=256&font-size=0.3"
                      alt="Mr.Riös Avatar"
-                     loading="lazy"
+                     loading="eager"
                      decoding="async"
                      width="128" height="128"
                      style="position:relative;width:8rem;height:8rem;border-radius:9999px;border:2px solid var(--border-default);object-fit:cover;box-shadow:var(--shadow-panel);transition:transform var(--transition-slow)"
@@ -177,11 +177,11 @@
         <section id="about" class="section glass-panel glass-panel--accent" style="padding:2rem;position:relative;overflow:hidden" data-reveal>
             <!-- Deko Icon -->
             <div style="position:absolute;top:0;right:0;padding:1rem;opacity:0.2;font-size:4rem;color:var(--color-neon-blue)">
-                <i class="fa-solid fa-user-astronaut"></i>
+                <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
             </div>
 
             <h2 style="font-size:1.875rem;font-weight:700;color:var(--color-neon-blue);margin:0 0 2rem;display:flex;align-items:center;gap:0.75rem">
-                <i class="fa-solid fa-terminal" style="font-size:0.875rem;animation:pulse-glow 2s ease-in-out infinite"></i>
+                <i class="fa-solid fa-terminal" aria-hidden="true" style="font-size:0.875rem;animation:pulse-glow 2s ease-in-out infinite"></i>
                 ABOUT_ME.exe
             </h2>
 
@@ -428,16 +428,16 @@
         <footer style="border-top:1px solid var(--border-default);padding:3rem 1rem 6rem;text-align:center;margin-top:3rem;background:var(--bg-card);backdrop-filter:blur(4px);border-radius:var(--radius-xl)" data-reveal>
             <!-- Social Icons -->
             <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem">
-                <a href="https://www.twitch.tv/stelltdichachtung" target="_blank" rel="noopener" class="social-icon bg-twitch social-icon--twitch" aria-label="Twitch">
+                <a href="https://www.twitch.tv/stelltdichachtung" target="_blank" rel="noopener" class="social-icon bg-twitch social-icon--twitch" aria-label="Twitch Profil besuchen">
                     <i class="fa-brands fa-twitch" aria-hidden="true"></i>
                 </a>
-                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" rel="noopener" class="social-icon bg-steam social-icon--steam" aria-label="Steam">
+                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" rel="noopener" class="social-icon bg-steam social-icon--steam" aria-label="Steam Profil besuchen">
                     <i class="fa-brands fa-steam" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" rel="noopener" class="social-icon bg-lastfm social-icon--lastfm" aria-label="Last.fm">
+                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" rel="noopener" class="social-icon bg-lastfm social-icon--lastfm" aria-label="Last.fm Profil besuchen">
                     <i class="fa-brands fa-lastfm" aria-hidden="true"></i>
                 </a>
-                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" rel="noopener" class="social-icon bg-trakt social-icon--trakt" aria-label="Trakt">
+                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" rel="noopener" class="social-icon bg-trakt social-icon--trakt" aria-label="Trakt Profil besuchen">
                     <i class="fa-solid fa-tv" aria-hidden="true"></i>
                 </a>
                 <a href="#" class="social-icon bg-youtube social-icon--youtube" aria-label="YouTube">
@@ -589,14 +589,14 @@
                 <!-- 1. SERVICE RECORD -->
                 <div class="dossier-grid">
                     <div class="dossier-section">
-                        <h4><i class="fa-solid fa-shield-halved" style="color:var(--color-neon-blue)"></i> Service Record</h4>
+                        <h3><i class="fa-solid fa-shield-halved" aria-hidden="true" style="color:var(--color-neon-blue)"></i> Service Record</h3>
                         <ul class="dossier-list">
                             <li><span class="dossier-label">Rank:</span><span class="dossier-value">Fallschirmjäger Offizier</span></li>
                             <li><span class="dossier-label">Service Time:</span><span class="dossier-value">21 Years (Active)</span></li>
                             <li><span class="dossier-label">Specialization:</span><span class="dossier-value">Leadership & Strategy</span></li>
                         </ul>
                         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-default)">
-                            <h5 style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 0.5rem">Psychometrics</h5>
+                                <h4 style="font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 0.5rem">Psychometrics</h4>
                             <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:0.25rem">
                                 <span style="color:var(--text-secondary)">Voice Pattern:</span>
                                 <span style="color:var(--color-neon-blue)">Deep / Resonant (Command)</span>
@@ -609,7 +609,7 @@
                     </div>
 
                     <div class="dossier-section">
-                        <h4><i class="fa-solid fa-rocket" style="color:var(--color-neon-purple)"></i> Digital Service (EVE)</h4>
+                        <h3><i class="fa-solid fa-rocket" aria-hidden="true" style="color:var(--color-neon-purple)"></i> Digital Service (EVE)</h3>
                         <ul class="dossier-list">
                             <li><span class="dossier-label">Playtime:</span><span class="dossier-value dossier-value--neon">21,000+ Hours</span></li>
                             <li><span class="dossier-label">Skillpoints:</span><span class="dossier-value">400,000,000+</span></li>
@@ -620,7 +620,7 @@
 
                 <!-- 2. TECH STACK -->
                 <div class="dossier-section">
-                    <h4><i class="fa-solid fa-code" style="color:#22c55e"></i> Technical Competence</h4>
+                    <h3><i class="fa-solid fa-code" aria-hidden="true" style="color:#22c55e"></i> Technical Competence</h3>
                     <div class="grid-2-4" style="font-size:0.75rem">
                         <div style="background:rgba(24,24,27,0.5);padding:0.5rem;border:1px solid var(--border-default);border-radius:var(--radius-md)">
                             <div style="color:var(--text-muted);margin-bottom:0.25rem">Core</div>
@@ -659,7 +659,7 @@
 
                 <!-- 3. CULTURAL DATABASE -->
                 <div class="dossier-section">
-                    <h4><i class="fa-solid fa-compact-disc" style="color:#eab308"></i> Cultural Database (10/10)</h4>
+                    <h3><i class="fa-solid fa-compact-disc" aria-hidden="true" style="color:#eab308"></i> Cultural Database (10/10)</h3>
                     <div class="dossier-grid" style="grid-template-columns:repeat(3,1fr)">
                         <div>
                             <strong style="color:var(--color-neon-blue);display:block;margin-bottom:0.5rem;font-size:0.75rem">&gt;&gt; VISUAL_MEDIA</strong>
@@ -703,7 +703,7 @@
         <div class="cookie-banner__content">
             <div style="font-size:2.5rem">🍪</div>
             <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem;text-align:center">
-                <h4 style="color:#fff;font-weight:700;font-size:1.125rem;margin:0">PROTOCOL_COOKIE_INIT</h4>
+                <p style="color:#fff;font-weight:700;font-size:1.125rem;margin:0">PROTOCOL_COOKIE_INIT</p>
                 <p style="font-size:0.875rem;color:var(--text-secondary);font-family:var(--font-mono);margin:0">
                     Wir nutzen <span style="color:var(--color-neon-blue)">keine Tracker</span>. Lediglich lokale Speicherstände für deine Theme-Einstellungen (Dark/Light Mode).
                     Das ist technisch notwendig, damit deine Augen nicht bluten. Deal?
