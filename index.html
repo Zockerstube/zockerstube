@@ -5,28 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Die Zockerstube | Mr.Riös</title>
     <meta name="description" content="Die Zockerstube – Home of StelltDichAchtung. Gaming, Tech & Community von Mr.Riös.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#09090b">
+    <link rel="canonical" href="https://zockerstube.github.io/">
+
+    <!-- 📱 OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Die Zockerstube | Mr.Riös">
+    <meta property="og:description" content="Die Zockerstube – Home of StelltDichAchtung. Gaming, Tech & Community von Mr.Riös.">
+    <meta property="og:url" content="https://zockerstube.github.io/">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="Die Zockerstube">
+
+    <!-- 🐦 TWITTER CARD -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Die Zockerstube | Mr.Riös">
+    <meta name="twitter:description" content="Die Zockerstube – Home of StelltDichAchtung. Gaming, Tech & Community von Mr.Riös.">
 
     <!-- 🖼️ FAVICON -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
 
-    <!-- 🎨 GOOGLE FONTS -->
+    <!-- ⚡ RESOURCE HINTS (DNS Prefetch + Preconnect) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+    <link rel="dns-prefetch" href="https://shared.fastly.steamstatic.com">
+    <link rel="dns-prefetch" href="https://ws.audioscrobbler.com">
+    <link rel="dns-prefetch" href="https://ui-avatars.com">
 
-    <!-- 🎯 FONTAWESOME 7.2 (Kit) -->
-    <script src="https://kit.fontawesome.com/ba530f4a27.js" crossorigin="anonymous"></script>
+    <!-- 🎨 GOOGLE FONTS (nur tatsächlich genutzte Weights, display=swap) -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet" fetchpriority="low">
 
-    <!-- 🎨 STYLESHEETS (OOCSS Architektur) -->
+    <!-- 🎯 FONTAWESOME 7.2 Kit (defer → nicht render-blockierend) -->
+    <script src="https://kit.fontawesome.com/ba530f4a27.js" crossorigin="anonymous" defer></script>
+
+    <!-- 🎨 CRITICAL CSS (render-blockierend, aber winzig) -->
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
+
+    <!-- 🎨 NON-CRITICAL CSS (deferred via media trick) -->
+    <link rel="stylesheet" href="css/animations.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/components.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/utilities.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/utilities.css">
+    </noscript>
+
+    <!-- 📊 STRUCTURED DATA (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mr.Riös",
+        "alternateName": "StelltDichAchtung",
+        "url": "https://zockerstube.github.io/",
+        "sameAs": [
+            "https://www.twitch.tv/stelltdichachtung",
+            "https://steamcommunity.com/id/mr-rioes/",
+            "https://www.last.fm/de/user/spezialzt",
+            "https://app.trakt.tv/profile/spezialzt"
+        ],
+        "knowsAbout": ["Gaming", "Streaming", "Software Development", "C#", "Angular"]
+    }
+    </script>
 </head>
 <body>
 
+    <!-- ♿ SKIP TO CONTENT (Accessibility) -->
+    <a href="#about" class="skip-link">Zum Inhalt springen</a>
     <!-- 🚀 LOADING SCREEN -->
     <div class="loading-screen" aria-hidden="true">
         <div class="loading-screen__text">SYSTEM_BOOT</div>
@@ -88,6 +137,9 @@
                 <div style="position:absolute;inset:-4px;border-radius:9999px;background:linear-gradient(to right,var(--color-neon-blue),var(--color-neon-purple));opacity:0.75;filter:blur(16px)" class="animate-pulse-glow"></div>
                 <img src="https://ui-avatars.com/api/?name=Mr+Ri%C3%B6s&background=09090b&color=00FFFF&size=256&font-size=0.3"
                      alt="Mr.Riös Avatar"
+                     loading="lazy"
+                     decoding="async"
+                     width="128" height="128"
                      style="position:relative;width:8rem;height:8rem;border-radius:9999px;border:2px solid var(--border-default);object-fit:cover;box-shadow:var(--shadow-panel);transition:transform var(--transition-slow)"
                      onmouseenter="this.style.transform='rotate(6deg) scale(1.05)'"
                      onmouseleave="this.style.transform=''">
@@ -106,17 +158,17 @@
 
             <!-- Link Pills -->
             <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem;font-size:0.875rem" data-reveal data-reveal-delay="2">
-                <a href="https://www.twitch.tv/stelltdichachtung/about" target="_blank" class="glass-panel nav-pill">
-                    <i class="fa-brands fa-twitch"></i> Twitch
+                <a href="https://www.twitch.tv/stelltdichachtung/about" target="_blank" rel="noopener" class="glass-panel nav-pill">
+                    <i class="fa-brands fa-twitch" aria-hidden="true"></i> Twitch
                 </a>
-                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" class="glass-panel nav-pill">
-                    <i class="fa-brands fa-steam"></i> Steam
+                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" rel="noopener" class="glass-panel nav-pill">
+                    <i class="fa-brands fa-steam" aria-hidden="true"></i> Steam
                 </a>
-                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" class="glass-panel nav-pill">
-                    <i class="fa-solid fa-tv"></i> Trakt
+                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" rel="noopener" class="glass-panel nav-pill">
+                    <i class="fa-solid fa-tv" aria-hidden="true"></i> Trakt
                 </a>
-                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" class="glass-panel nav-pill">
-                    <i class="fa-brands fa-lastfm"></i> Last.fm
+                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" rel="noopener" class="glass-panel nav-pill">
+                    <i class="fa-brands fa-lastfm" aria-hidden="true"></i> Last.fm
                 </a>
             </div>
         </section>
@@ -216,14 +268,14 @@
                         <i class="fa-solid fa-desktop" style="color:var(--text-muted)"></i>
                     </div>
                     <div class="hw-card__body">
-                        <a href="https://www.amazon.de/s?k=Intel+Xeon+W9+3495X" target="_blank" class="hw-card__item">
+                        <a href="https://www.amazon.de/s?k=Intel+Xeon+W9+3495X" target="_blank" rel="noopener" class="hw-card__item">
                             <i class="fa-solid fa-microchip hw-card__item-icon"></i>
                             <div>
                                 <div class="hw-card__item-name">Intel Xeon W9 3495X</div>
                                 <div class="hw-card__item-sub">Process Unit</div>
                             </div>
                         </a>
-                        <a href="https://www.amazon.de/s?k=ASUS+ProArt+GeForce+RTX+4080+OC" target="_blank" class="hw-card__item">
+                        <a href="https://www.amazon.de/s?k=ASUS+ProArt+GeForce+RTX+4080+OC" target="_blank" rel="noopener" class="hw-card__item">
                             <i class="fa-solid fa-memory hw-card__item-icon"></i>
                             <div>
                                 <div class="hw-card__item-name">ASUS ProArt RTX 4080 OC</div>
@@ -247,7 +299,7 @@
                         <i class="fa-solid fa-satellite-dish" style="color:var(--text-muted)"></i>
                     </div>
                     <div class="hw-card__body">
-                        <a href="https://www.amazon.de/s?k=ASUS+NUC+14+Enthusiast" target="_blank" class="hw-card__item">
+                        <a href="https://www.amazon.de/s?k=ASUS+NUC+14+Enthusiast" target="_blank" rel="noopener" class="hw-card__item">
                             <i class="fa-solid fa-box-open hw-card__item-icon"></i>
                             <div>
                                 <div class="hw-card__item-name">ASUS NUC 14 Enthusiast</div>
@@ -376,23 +428,23 @@
         <footer style="border-top:1px solid var(--border-default);padding:3rem 1rem 6rem;text-align:center;margin-top:3rem;background:var(--bg-card);backdrop-filter:blur(4px);border-radius:var(--radius-xl)" data-reveal>
             <!-- Social Icons -->
             <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem">
-                <a href="https://www.twitch.tv/stelltdichachtung" target="_blank" class="social-icon bg-twitch social-icon--twitch" aria-label="Twitch">
-                    <i class="fa-brands fa-twitch"></i>
+                <a href="https://www.twitch.tv/stelltdichachtung" target="_blank" rel="noopener" class="social-icon bg-twitch social-icon--twitch" aria-label="Twitch">
+                    <i class="fa-brands fa-twitch" aria-hidden="true"></i>
                 </a>
-                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" class="social-icon bg-steam social-icon--steam" aria-label="Steam">
-                    <i class="fa-brands fa-steam"></i>
+                <a href="https://steamcommunity.com/id/mr-rioes/" target="_blank" rel="noopener" class="social-icon bg-steam social-icon--steam" aria-label="Steam">
+                    <i class="fa-brands fa-steam" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" class="social-icon bg-lastfm social-icon--lastfm" aria-label="Last.fm">
-                    <i class="fa-brands fa-lastfm"></i>
+                <a href="https://www.last.fm/de/user/spezialzt" target="_blank" rel="noopener" class="social-icon bg-lastfm social-icon--lastfm" aria-label="Last.fm">
+                    <i class="fa-brands fa-lastfm" aria-hidden="true"></i>
                 </a>
-                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" class="social-icon bg-trakt social-icon--trakt" aria-label="Trakt">
-                    <i class="fa-solid fa-tv"></i>
+                <a href="https://app.trakt.tv/profile/spezialzt" target="_blank" rel="noopener" class="social-icon bg-trakt social-icon--trakt" aria-label="Trakt">
+                    <i class="fa-solid fa-tv" aria-hidden="true"></i>
                 </a>
                 <a href="#" class="social-icon bg-youtube social-icon--youtube" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-youtube" aria-hidden="true"></i>
                 </a>
                 <a href="#" class="social-icon bg-discord social-icon--discord" aria-label="Discord">
-                    <i class="fa-brands fa-discord"></i>
+                    <i class="fa-brands fa-discord" aria-hidden="true"></i>
                 </a>
             </div>
 
@@ -411,11 +463,6 @@
                     </button>
                     <button onclick="switchTheme('dark')" class="theme-toggle__btn" data-theme="dark" title="Dark Mode">
                         <i class="fa-solid fa-moon" style="font-size:0.875rem"></i>
-                    </button>
-                </div>
-                <div class="sound-toggle">
-                    <button onclick="toggleSound()" id="btn-sound" class="sound-toggle__btn" title="Audio Feedback Toggle">
-                        <i class="fa-solid fa-volume-high" style="font-size:0.875rem"></i>
                     </button>
                 </div>
             </div>
@@ -662,7 +709,7 @@
                     Das ist technisch notwendig, damit deine Augen nicht bluten. Deal?
                 </p>
             </div>
-            <div style="display:flex;gap:1rem;flex-shrink:0">
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
                 <button onclick="acceptCookies()" class="btn btn--primary">[ ACCEPT ]</button>
                 <button onclick="acceptCookies()" class="btn btn--ghost">[ WHATEVER ]</button>
             </div>
@@ -671,7 +718,7 @@
 
     <!-- ⚡ JAVASCRIPT (Modulare Architektur, geladen mit defer) -->
     <script src="js/theme.js" defer></script>
-    <script src="js/audio.js" defer></script>
+
     <script src="js/widget.js" defer></script>
     <script src="js/terminal.js" defer></script>
     <script src="js/games.js" defer></script>

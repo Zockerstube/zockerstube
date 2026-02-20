@@ -78,6 +78,8 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    contain: strict;
+    will-change: auto;
 }
 
 .bg-layer__grid {

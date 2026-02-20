@@ -39,7 +39,9 @@
 
 /* === Section Spacing (vertikaler Rhythmus) === */
 .section {
-    margin-bottom: 6rem;         /* ~96px = space-y-24 */
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    contain: layout style;
 }
 
 .section:last-child {

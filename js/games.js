@@ -75,14 +75,22 @@ const GamesGrid = (() => {
         const card = document.createElement('a');
         card.href = `https://store.steampowered.com/app/${game.id}`;
         card.target = '_blank';
+        card.rel = 'noopener';
         card.className = 'tilt-card';
         card.setAttribute('data-reveal', '');
+        card.setAttribute('aria-label', game.name);
 
         const imgUrl = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${game.id}/header.jpg`;
 
         card.innerHTML = `
             <div class="tilt-card__inner">
-                <div class="tilt-card__bg" style="background-image: url('${imgUrl}')">
+                <div class="tilt-card__bg">
+                    <img src="${imgUrl}"
+                         alt="${game.name} Cover"
+                         loading="lazy"
+                         decoding="async"
+                         width="460" height="215"
+                         style="width:100%;height:100%;object-fit:cover">
                     <div class="tilt-card__gradient"></div>
                 </div>
             </div>
@@ -90,7 +98,7 @@ const GamesGrid = (() => {
                 <h4>${game.name}</h4>
             </div>
             <div class="tilt-card__link-icon">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
             </div>
         `;
 

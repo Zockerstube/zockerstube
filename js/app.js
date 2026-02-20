@@ -40,21 +40,9 @@
      * --------------------------------------------------------------- */
     window.toggleModal = toggleModal;
     window.switchTheme = (mode) => ThemeEngine.switchTheme(mode);
-    window.toggleSound = () => AudioSystem.toggle();
     window.toggleWidget = () => MusicWidget.toggleWidget();
     window.openYtMusic = () => MusicWidget.openYtMusic();
     window.acceptCookies = () => Effects.acceptCookies();
-
-    /* ---------------------------------------------------------------
-     * AUDIO FEEDBACK FÜR INTERAKTIVE ELEMENTE
-     * Hover und Klick-Sounds für Links, Buttons und Karten
-     * --------------------------------------------------------------- */
-    function attachAudioListeners() {
-        document.querySelectorAll('a, button, .tilt-card').forEach(el => {
-            el.addEventListener('mouseenter', () => AudioSystem.play('hover'));
-            el.addEventListener('click', () => AudioSystem.play('click'));
-        });
-    }
 
     /* ---------------------------------------------------------------
      * BOOTSTRAP — Alles starten
@@ -63,17 +51,13 @@
         // 1. Theme zuerst (vermeidet Flash of Wrong Theme)
         ThemeEngine.init();
 
-        // 2. Audio System
-        AudioSystem.init();
-
-        // 3. Feature-Module
+        // 2. Feature-Module
         GamesGrid.init();
         MusicWidget.init();
         Terminal.init();
         Effects.init();
 
-        // 4. Audio-Feedback nach kurzem Delay (damit Elemente gerendert sind)
-        setTimeout(attachAudioListeners, 500);
+
     }
 
     /* --- Los geht's! --- */

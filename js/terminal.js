@@ -62,7 +62,6 @@ Steam: mr-rioes`),
 
         sudo: () => {
             printLine('<span style="color:#ef4444">PERMISSION DENIED. Nice try, script kiddy.</span>');
-            AudioSystem?.play('click');
         },
 
         matrix: () => {
@@ -101,7 +100,6 @@ Steam: mr-rioes`),
             printLine(`<span style="color:#f87171">Command not found: ${cmd}</span>`);
         }
 
-        AudioSystem?.play('hover');
     }
 
     /* ---------------------------------------------------------------
@@ -111,10 +109,8 @@ Steam: mr-rioes`),
         overlay.classList.toggle('is-open');
         if (overlay.classList.contains('is-open')) {
             input.focus();
-            AudioSystem?.play('open');
         } else {
             input.blur();
-            AudioSystem?.play('click');
         }
     }
 
